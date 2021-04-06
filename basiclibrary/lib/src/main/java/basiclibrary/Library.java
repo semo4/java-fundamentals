@@ -3,10 +3,7 @@
  */
 package basiclibrary;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 public class Library {
     public boolean someLibraryMethod() {
@@ -14,7 +11,7 @@ public class Library {
     }
 
     public static void main(String[] args) {
-//        int[] arr1  = {1,2,3,50,40,86,20,10};
+        int[] arr1  = new int[]{};
 //        System.out.println(Arrays.toString(roll(1)));
 //        System.out.println(average(arr1));
 //        int[] arr  = {1,2,3};
@@ -27,7 +24,22 @@ public class Library {
 //                {65, 56, 55, 52, 55, 62, 57}
 //        };
 //
-//        System.out.println(Arrays.toString(arrayAvg(weeklyMonthTemperatures)));
+//        System.out.println(Arrays.toString(insertShiftArray(arr1, 15)));
+//        System.out.println(weatherData(weeklyMonthTemperatures));
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String winner = tally(votes);
+        System.out.println(winner + " received the most votes!");
+
     }
 
     public static int[] roll(int n){
@@ -85,4 +97,74 @@ public class Library {
         return arr[key];
 
     }
+
+
+    public static int[] insertShiftArray(int[] arr, int num){
+        int[] newArray = new int[arr.length+1];
+        int midValue = (int) Math.ceil(arr.length/2.0);
+        for(int j=0; j<arr.length ;j++){
+            newArray[j]= arr[j];
+        }
+        for(int i =newArray.length-1; i > midValue ; i--){
+
+            newArray[i] = newArray[i-1];
+        }
+        newArray[midValue] = num;
+        return newArray;
+    }
+
+    public static String weatherData(int[][] arr){
+        HashSet<Integer> unique = new HashSet<>();
+        int max = arr[0][1];
+        int min = arr[0][0];
+        String returnData = "";
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                unique.add(arr[i][j]);
+                if(max< arr[i][j]){
+                    max = arr[i][j];
+                }
+                if(min> arr[i][j]){
+                    min = arr[i][j];
+                }
+            }
+        }
+
+       returnData = returnData + "High: " + max + "\n";
+        returnData = returnData +"Low: " + min+ "\n";
+
+        for (int i = min; i < max; i++) {
+            if(!unique.contains(i)){
+                returnData = returnData +"Never saw temperature: " + i + "\n";
+            }
+
+        }
+        return returnData;
+
+
+    }
+
+
+    public static String tally(List<String> vote){
+        HashMap<String, Integer> vot = new HashMap<>();
+        int count = 0;
+        String name = "";
+        for(String names : vote){
+            vot.put(names, 0);
+        }
+
+        for(String names : vote){
+            if(vot.get(names) > count){
+                count = vot.get(names)+1;
+                name = names;
+            }
+            else{
+                vot.put(names,vot.get(names)+1);
+            }
+        }
+
+        return name;
+    }
+
 }

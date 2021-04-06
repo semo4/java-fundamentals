@@ -12,3 +12,12 @@
     - Contains Duplicates
     - Calculating Averages
     - Lowest value Array of Arrays
+
+# lab 3
+    - basiclibrary: Library.java
+    - weatherData
+    - tally
+
+# lab 3
+    - linter: App.java
+    - checkLine

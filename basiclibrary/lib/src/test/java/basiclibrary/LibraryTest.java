@@ -4,6 +4,10 @@
 package basiclibrary;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class LibraryTest {
@@ -49,6 +53,62 @@ public class LibraryTest {
         int [] resultArray = Library.arrayAvg(weeklyMonthTemperatures);
         assertEquals("the lowest array  ", subArray,resultArray);
     }
+
+   @Test
+   public void testInsertShiftArrayEven() {
+       int[] array = {2, 4, 6, 8};
+       int[] resultArray = {2, 4, 5, 6, 8};
+       assertArrayEquals("the even array  ", resultArray, Library.insertShiftArray(array, 5));
+   }
+   @Test
+   public void testInsertShiftArrayOdd() {
+       int[] array = {4,8,15,23,42};
+       int[] resultArray = {4,8,15,16,23,42};
+       assertArrayEquals("the odd array  ", resultArray, Library.insertShiftArray(array, 16));
+   }
+   @Test
+   public void testInsertShiftArrayEmpty() {
+       int [] array = new int[]{};
+       int [] resultArray ={1} ;
+       assertArrayEquals("the even array  ", resultArray,Library.insertShiftArray(array,1));
+   }
+
+    @Test
+    public void testWeatherData() {
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        String expected = "High: 72\n" +
+                "Low: 51\n" +
+                "Never saw temperature: 63\n" +
+                "Never saw temperature: 67\n" +
+                "Never saw temperature: 68\n" +
+                "Never saw temperature: 69\n";
+        String result = Library.weatherData(weeklyMonthTemperatures);
+        assertEquals("the String is  ",expected,result);
+    }
+    @Test
+    public void testTally() {
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String expected = "Bush received the most votes!";
+        String result = Library.tally(votes);
+        String res = result + " received the most votes!";
+        assertEquals("the String is  ",expected,res);
+    }
+
 
 
 }

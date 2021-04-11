@@ -21,3 +21,20 @@
 # lab 3
     - linter: App.java
     - checkLine it take file and read it line by line to check if it end with ; or { ,} or containe if . else and return message of line number and if it missing ; 
+
+# lab 6
+- I build three classes
+## Restaurant 
+- It contains three field name, stars, price 
+- It contains Constructor with full field and Constructor with name 
+- It contains AddReview function that take three parameters and create new instance for Review Class
+- It contains toString function to print the result 
+
+## Review 
+- It contains three field body, author, stars 
+- it extends from Restaurant 
+- It contains Constructor with full field and one field name from Restaurant 
+- It contains toString function to print the result 
+
+## library
+- it contains main function to run the code 

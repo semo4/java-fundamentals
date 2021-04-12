@@ -38,3 +38,21 @@
 
 ## library
 - it contains main function to run the code 
+
+# lab 6
+## Shop 
+- It contains three field name, stars, description 
+- It contains Constructor with full field 
+- It contains AddReview function that take three parameters and create new instance for Review Class
+- It contains toString function to print the result 
+
+## Theater 
+- It contains three field name, list of movie 
+- It contains Constructor with full field
+- It contains AddReview function that take three parameters and create new instance for Review Class
+- It contains AddMovie function that add movie to the list
+- It contains removeMovie it remove movie from the list 
+- It contains toString function to print the result 
+
+
+

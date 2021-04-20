@@ -21,9 +21,9 @@ public class Restaurant {
     }
 
 
-    public void addReview(Review potato){
-        reviews.add(potato);
-        potato.restaurant = this;
+    public void addReview(Review review){
+        reviews.add(review);
+        review.restaurant = this;
         updateStars();
     }
 

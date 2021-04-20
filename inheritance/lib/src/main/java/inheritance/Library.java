@@ -5,26 +5,19 @@ package inheritance;
 
 public class Library {
     public static void main(String[] args) {
-//        Restaurant r = new Restaurant("osama", 8, 5);
-//        //Review re = new Review("osama", "osama");
-//
-//
-//        r.addReview("Hello my name is Osama And I review your restaurant ", "osama",3);
-//
-//        System.out.println(r.toString());
 
-        Shop s = new Shop("rhtert","35g245", 5);
-        System.out.println(s.toString());
+        Restaurant r = new Restaurant("SunShine","20");
 
-        Theater t = new Theater("Osama");
+        System.out.println(r.toString());
 
-        t.addMovie("Hitman");
-        t.addMovie("X man");
-        t.addMovie("Baki");
-        t.addMovie("Hitman");
-        t.removeMovie("Hitman");
+        Review re = new Review("the restaurant is good","Osama", 4);
 
-        System.out.println(t.toString());
+        System.out.println(re.toString());
+
+        r.addReview(re);
+        System.out.println(r.toString());
+
+
 
 
     }

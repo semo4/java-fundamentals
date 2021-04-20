@@ -10,4 +10,28 @@ public class LibraryTest {
     @Test public void testSomeLibraryMethod() {
 
     }
+
+    @Test public void testRestaurant() {
+        Restaurant r = new Restaurant("SunShine","20");
+        String exp = "Name: SunShine, Price: 20, Rating: 0";
+        assertEquals("the output is", exp,  r.toString());
+
+    }
+
+    @Test public void testReview() {
+        Review re = new Review("the restaurant is good","Osama", 4);
+        String exp = "My name is : Osama And my review : the restaurant is good I give you 4";
+        assertEquals("the output is", exp,  re.toString());
+
+    }
+
+    @Test public void testAddReview() {
+        Restaurant r = new Restaurant("SunShine","20");
+        Review re = new Review("the restaurant is good","Osama", 4);
+        r.addReview(re);
+        assertEquals("the output is", 4,  r.star);
+
+    }
+
+
 }

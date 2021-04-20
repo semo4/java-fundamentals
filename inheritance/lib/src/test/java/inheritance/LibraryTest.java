@@ -25,11 +25,48 @@ public class LibraryTest {
 
     }
 
-    @Test public void testAddReview() {
+    @Test public void testAddReviewRestaurant() {
         Restaurant r = new Restaurant("SunShine","20");
         Review re = new Review("the restaurant is good","Osama", 4);
         r.addReview(re);
         assertEquals("the output is", 4,  r.star);
+
+    }
+
+    @Test public void testShop() {
+        Shop s = new Shop("MD","20");
+        String exp = "Name: MD, Price: 20, Rating: 0";
+        assertEquals("the output is", exp,  s.toString());
+
+    }
+
+    @Test public void testAddReviewShop() {
+        Shop s = new Shop("MD","20");
+        Review re = new Review("the Shop is good","Osama", 3);
+        s.addReview(re);
+        assertEquals("the output is", 3,  s.star);
+
+    }
+
+    @Test public void testTheater() {
+        Theater t = new Theater("Main Theater","20");
+        String exp = "Name: City, Price: 20, Rating: 0";
+        assertEquals("the output is", exp,  t.toString());
+
+    }
+
+    @Test public void testAddReviewTheater() {
+        Theater t = new Theater("Main Theater","20");
+        Review re = new Review("the Shop is good","Osama", 3);
+        t.addReview(re);
+        assertEquals("the output is", 3,  t.star);
+
+    }
+    @Test public void testAddMovieTheater() {
+        Theater t = new Theater("Main Theater","20");
+        Movie m = new Movie("Iron man");
+        t.addMovie(m);
+        assertTrue("the output is",  t.movies.contains(m));
 
     }
 
